@@ -10,7 +10,7 @@ const reset = async (req, res) => {
     if (!User) {
       res.json({ message: "email doesn't exist" });
     } else {
-      const token = jwt.sign({ email }, process.env.tokensignature3, { expiresIn: "1h" });
+      const token = jwt.sign({ email }, efwhjfuiehufih, { expiresIn: "1h" });
       const link = `https://mysterious-eyrie-48783.herokuapp.com/reset-password/${token}`;
 
       const message = `<a href="${link}">click me to reset password</a>`;
@@ -25,7 +25,7 @@ const resetPassword = async (req, res) => {
   try {
     const { token } = req.params;
     const { password } = req.body;
-    const decoded = jwt.verify(token, process.env.tokensignature3);
+    const decoded = jwt.verify(token, efwhjfuiehufih);
     if (!decoded) {
       res.json({ message: "invalid token" });
     } else {
