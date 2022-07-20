@@ -11,7 +11,7 @@ const reset = async (req, res) => {
       res.json({ message: "email doesn't exist" });
     } else {
       const token = jwt.sign({ email }, process.env.tokensignature3, { expiresIn: "1h" });
-      const link = `http://localhost:3000/reset-password/${token}`;
+      const link = `https://mysterious-eyrie-48783.herokuapp.com/reset-password/${token}`;
 
       const message = `<a href="${link}">click me to reset password</a>`;
       sendEmail(email, message);
